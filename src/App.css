@@ -1,10 +1,27 @@
-.App {
-  text-align: center;
+/* General */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace; /* Aplica la fuente en todos los elementos */
 }
 
+body {
+  font-family: 'JetBrains Mono', monospace; /* Ya lo tienes aquí, pero lo repito para claridad */
+  line-height: 1.6;
+  padding-top: 80px; /* Evita que el contenido quede oculto detrás del header */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App {
+  text-align: justify;
+}
+
+/* 🚀 Logo */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,21 +30,86 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 🏠 Header (Barra de navegación) */
+header {
+  background-color: #222;  /* Negro para el header */
+  color: white;
+  padding: 15px 30px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #f4a261; /* Naranja al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+/* 📌 Secciones */
+section {
+  padding: 100px 20px;
+  margin-top: 80px; /* Evita que el contenido se esconda detrás del header */
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* 🌞 Modo Claro */
+body.light-mode {
+  background-color: #fff;
+  color: #333; /* Gris oscuro para el texto */
+}
+
+/* 🌙 Modo Oscuro */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f4f4f4; /* Gris claro para el texto */
+}
+
+/* 🎨 Botón de cambio de tema */
+.theme-toggle {
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 2px solid #f4a261; /* Naranja en el borde */
+  color: #f4a261; /* Naranja en el texto */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #f4a261; /* Naranja de fondo al pasar el mouse */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
+/* 🌀 Animación del logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +117,263 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* 🏆 Skills */
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Aumenta el espacio entre los elementos */
+  flex-wrap: wrap; /* Permite que las habilidades se ajusten en pantallas pequeñas */
+}
+
+.skills span {
+  background-color: #f4a261; /* Naranja claro */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efecto hover: agrandar y cambiar el fondo */
+.skills span:hover {
+  transform: scale(1.1); /* Agranda el elemento al 110% */
+  background-color: #e63946; /* Naranja más fuerte al pasar el mouse */
+}
+
+/* 🌞/🌙 Botón Modo Oscuro */
+.theme-toggle {
+  padding: 8px 12px;
+  border: 2px solid #f4a261;
+  color: #f4a261;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #f4a261;
+  color: white;
+}
+
+/* Estilos para la imagen */
+.about-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;  /* Asegura que la imagen se recorte y ajuste correctamente */
+  margin-top: 20px;
+}
+
+.contact-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 100px; /* Espacio entre los elementos */
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f4a261; /* Naranja para los enlaces de contacto */
+  font-weight: bold;
+}
+
+.contact-link:hover {
+  color: #e63946; /* Naranja más fuerte en hover */
+  text-decoration: underline;
+}
+
+/* Estilo para el contenedor del título e icono */
+.typing-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estilo para el icono (imagen) */
+.title-icon {
+  height: 4rem;
+  width: auto;
+}
+
+/* Estilo para la frase con animación de tipeo */
+.typing-animation {
+  font-size: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #f4a261; /* Cursor */
+  display: inline-block;
+  width: 0;
+  animation: 
+    typing 3s steps(30) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Animación de tipeo - se detiene al completarse */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Parpadeo del cursor */
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+.contact-icon {
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px;
+  margin-right: 10px; /* Espaciado entre la imagen y el texto */
+}
+
+/* 🧑‍💻 Mis Proyectos */
+.projects-section {
+  padding: 50px 20px;
+  margin-top: 80px;
+  text-align: center;
+  background-color: #f4f4f4; /* Fondo claro para diferenciar la sección */
+  border-radius: 10px;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  animation: slideInUp 1s ease-out;
+}
+
+.project-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Efecto hover para que suba un poco */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.project-card h3 {
+  margin: 15px 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background-color: #e67e22; /* Naranja más fuerte */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: #d35400; /* Naranja más fuerte en hover */
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hacer que los proyectos se muestren cuando estén en la vista */
+.projects-container .project-card {
+  animation-delay: 0.2s;
+}
+
+.projects-container .project-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.projects-container .project-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.projects-container .project-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* App.css */
+.App {
+  font-family: 'JetBrains Mono', monospace; /* Aplica la fuente a toda la app */
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-media a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  text-decoration: underline;
 }
